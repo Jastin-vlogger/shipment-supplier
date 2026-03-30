@@ -107,13 +107,13 @@ export function PortalShell({
       <div className="flex min-h-0 min-w-0 flex-1 flex-col">
         {/* Navbar */}
         <header className="z-20 border-b border-slate-200 bg-white/90 px-4 py-3 sm:px-5 md:px-6 backdrop-blur-[12px]">
-          <div className="mx-auto flex items-center justify-between gap-4">
-            <div className="min-w-0">
+          <div className="mx-auto flex flex-wrap items-center justify-between gap-4">
+            <div className="min-w-0 flex-1">
               <p className="text-[11px] font-black uppercase tracking-[0.28em] text-slate-400">Supplier Workspace</p>
               <h2 className="truncate text-lg font-black tracking-tight text-slate-900">{supplierName}</h2>
             </div>
             
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
               <span className={`status-badge status-${registrationStage.toLowerCase().replace(/\s+/g, '-')}`}>
                 {profileComplete ? 'Draft' : `${profileCompletionPercent}% complete`}
               </span>

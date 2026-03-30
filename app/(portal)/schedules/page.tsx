@@ -67,24 +67,24 @@ export default async function SchedulesPage() {
             {schedules.length ? (
               schedules.map((schedule) => (
                 <tr key={schedule.id}>
-                  <td>
+                  <td data-label="Shipment no">
                     <div className="schedule-primary-cell">
                       <Link href={`/schedules/${schedule.containerId}`}>{schedule.shipmentNo}</Link>
                       <span>{schedule.route}</span>
                     </div>
                   </td>
-                  <td><span className="schedule-metric-pill">{schedule.fcl}</span></td>
-                  <td><span className="schedule-metric-pill">{schedule.size}</span></td>
-                  <td><span className="schedule-metric-pill">{schedule.qtyMT.toFixed(2)}</span></td>
-                  <td>
+                  <td data-label="FCL"><span className="schedule-metric-pill">{schedule.fcl}</span></td>
+                  <td data-label="Size"><span className="schedule-metric-pill">{schedule.size}</span></td>
+                  <td data-label="Qty MT"><span className="schedule-metric-pill">{schedule.qtyMT.toFixed(2)}</span></td>
+                  <td data-label="ETD">
                     <span className="schedule-date-pill">{schedule.etd ? new Date(schedule.etd).toLocaleDateString() : '—'}</span>
                   </td>
-                  <td>
+                  <td data-label="ETA">
                     <span className="schedule-date-pill">{schedule.eta ? new Date(schedule.eta).toLocaleDateString() : '—'}</span>
                   </td>
-                  <td><span className="schedule-week-pill">{schedule.week}</span></td>
-                  <td className="schedule-updated-cell">{new Date(schedule.updatedAt).toLocaleString()}</td>
-                  <td>
+                  <td data-label="Week"><span className="schedule-week-pill">{schedule.week}</span></td>
+                  <td data-label="Updated" className="schedule-updated-cell">{new Date(schedule.updatedAt).toLocaleString()}</td>
+                  <td data-label="Action">
                     <Link href={`/schedules/${schedule.containerId}`} className="schedule-action-link">
                       {canManageSchedules ? 'Update ETA / ETD' : 'View'}
                     </Link>

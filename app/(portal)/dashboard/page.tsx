@@ -85,15 +85,15 @@ export default async function DashboardPage() {
               {recentSchedules.length ? (
                 recentSchedules.map((schedule) => (
                   <tr key={schedule.id}>
-                    <td>
+                    <td data-label="Shipment no">
                       <div className="schedule-primary-cell">
                         <Link href={`/schedules/${schedule.containerId}`}>{schedule.shipmentNo}</Link>
                         <span>{schedule.route}</span>
                       </div>
                     </td>
-                    <td><span className="schedule-metric-pill">{schedule.referenceNo || '—'}</span></td>
-                    <td><span className="schedule-date-pill">{`${schedule.etd ? new Date(schedule.etd).toLocaleDateString() : '—'} / ${schedule.eta ? new Date(schedule.eta).toLocaleDateString() : '—'}`}</span></td>
-                    <td className="schedule-updated-cell">{new Date(schedule.updatedAt).toLocaleString()}</td>
+                    <td data-label="Reference"><span className="schedule-metric-pill">{schedule.referenceNo || '—'}</span></td>
+                    <td data-label="ETD / ETA"><span className="schedule-date-pill">{`${schedule.etd ? new Date(schedule.etd).toLocaleDateString() : '—'} / ${schedule.eta ? new Date(schedule.eta).toLocaleDateString() : '—'}`}</span></td>
+                    <td data-label="Updated" className="schedule-updated-cell">{new Date(schedule.updatedAt).toLocaleString()}</td>
                   </tr>
                 ))
               ) : (
